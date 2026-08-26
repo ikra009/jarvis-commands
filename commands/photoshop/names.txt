@@ -1,0 +1,2 @@
+Open photoshop:Open photoshop
+Close photoshop:Close photoshop

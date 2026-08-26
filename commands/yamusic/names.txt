@@ -1,0 +1,32 @@
+﻿Следующий трек:Next music
+Предыдущий трек:Prev music
+Включить музыку:Run music
+Сохранить трек:Save music
+Выключить музыку:Stop music
+Включить яндекс музыку:Run music
+Запустить музыку:Run music
+Врубить музыку:Run music
+Переключить на яндекс музыку:Run music
+Включить плеер:Run music
+Яндекс музыку:Run music
+Поставить на паузу:Stop music
+Остановить музыку:Stop music
+Пауза музыки:Stop music
+Продолжить музыку:Stop music
+Снять с паузы:Stop music
+Возобновить музыку:Stop music
+Дальше:Next music
+Следующая:Next music
+Некст:Next music
+Листать вперёд:Next music
+Вперёд трек:Next music
+Переключить трек:Next music
+Назад:Prev music
+Предыдущая:Prev music
+Листать назад:Prev music
+Вернуть трек:Prev music
+Лайкнуть:Save music
+Лайкнуть трек:Save music
+Добавить в понравившееся:Save music
+Поставить лайк:Save music
+В избранное:Save music

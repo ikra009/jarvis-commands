@@ -1,0 +1,10 @@
+﻿Включить вк музыку:Open music
+Включить вк аудио:Open music
+Переключить на вк музыку:Open music
+Открыть вк музыку:Open music
+Врубить вк:Open music
+Вк аудио:Open music
+Переключить музыку на вк:Open music
+Открыть аудиозаписи вк:Open music
+Вк музыку:Open music
+Запустить вк музыку:Open music

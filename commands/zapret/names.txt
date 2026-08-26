@@ -1,0 +1,16 @@
+Включи запрет:Open zapret
+Запрет:Open zapret
+Вруби запрет:Open zapret
+Запусти запрет:Open zapret
+Включи разблокировку:Open zapret
+Разблокируй:Open zapret
+Обход блокировок:Open zapret
+Включи запрет vpn:Open zapret
+Включи обход:Open zapret
+Выключи запрет:Close zapret
+Отключи запрет:Close zapret
+Стоп запрет:Close zapret
+Запрет выключи:Close zapret
+Выключи разблокировку:Close zapret
+Останови запрет:Close zapret
+Отключи обход:Close zapret
