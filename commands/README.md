@@ -1,3 +1,8 @@
+> **Credits / Автор:** Оболочка **JARVIS** создана [Priler](https://github.com/Priler/jarvis).
+> Этот набор — кастомные голосовые команды для JARVIS (базируется на [`commands-for-jarvis`](https://github.com/Priler/jarvis)),
+> расширенные личными командами: `photoshop` (darktable), `happr` (VPN), `opencode`, `steam`, `telegram_proxy`, `youtube_close`, `volume_extra`.
+> Лицензия оригинального проекта — за автором; производные команды распространяются с учётом исходной.
+
 # commands-for-jarvis
 
 ***НЕОФИЦИАЛЬНЫЕ КАСТОМНЫЕ КОМАНДЫ ДЛЯ JARVIS***
