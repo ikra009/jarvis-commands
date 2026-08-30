@@ -4,7 +4,8 @@ list:
     exe_path: ahk/Reply time.exe
     exe_args:
   voice:
-    sounds: []
+    sounds:
+    - silence
   phrases:
     - который час
     - бля который час
@@ -110,7 +111,8 @@ list:
     exe_path: ahk/Reply uptime.exe
     exe_args:
   voice:
-    sounds: []
+    sounds:
+    - silence
   phrases:
     - сколько работаешь
     - бля сколько работаешь
@@ -198,7 +200,8 @@ list:
     exe_path: ahk/Reply weather.exe
     exe_args:
   voice:
-    sounds: []
+    sounds:
+    - silence
   phrases:
     - какая погода
     - бля какая погода
@@ -340,7 +343,8 @@ list:
     exe_path: ahk/Reply greeting.exe
     exe_args:
   voice:
-    sounds: []
+    sounds:
+    - silence
   phrases:
     - привет
     - бля привет
@@ -482,7 +486,8 @@ list:
     exe_path: ahk/Reply howareyou.exe
     exe_args:
   voice:
-    sounds: []
+    sounds:
+    - silence
   phrases:
     - как дела
     - бля как дела
@@ -570,7 +575,8 @@ list:
     exe_path: ahk/Reply thanks.exe
     exe_args:
   voice:
-    sounds: []
+    sounds:
+    - silence
   phrases:
     - спасибо
     - бля спасибо

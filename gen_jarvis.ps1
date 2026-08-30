@@ -58,7 +58,8 @@ foreach ($f in $order) {
     $yaml += "    exe_args:`n"
     if ($voiceMode) {
       $yaml += "  voice:`n"
-      $yaml += "    sounds: []`n"
+      $yaml += "    sounds:`n"
+      $yaml += "    - silence`n"
     } else {
       $yaml += "  voice:`n"
       $yaml += "    sounds:`n"

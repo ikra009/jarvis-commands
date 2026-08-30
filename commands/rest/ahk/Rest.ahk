@@ -1,1 +1,1 @@
-Run, "C:\Program Files\Python314\pythonw.exe" "C:\Users\ikra\Documents\Projects\teos-bot\commands.py" rest
+Run, "C:\Users\ikra\Documents\Projects\teos-bot\venv\Scripts\pythonw.exe" "C:\Users\ikra\Documents\Projects\teos-bot\voice_note.py" --once rest

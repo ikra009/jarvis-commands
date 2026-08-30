@@ -1,2 +1,1 @@
-FileDelete, C:\Users\ikra\Documents\Projects\teos-bot\.vn_trigger
-FileAppend, reply_uptime, C:\Users\ikra\Documents\Projects\teos-bot\.vn_trigger
+Run, "C:\Users\ikra\Documents\Projects\teos-bot\venv\Scripts\pythonw.exe" "C:\Users\ikra\Documents\Projects\teos-bot\voice_note.py" --once reply_uptime
