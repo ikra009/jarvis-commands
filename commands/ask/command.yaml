@@ -4,10 +4,7 @@ list:
     exe_path: ahk/Ask.exe
     exe_args:
   voice:
-    sounds:
-    - ok1
-    - ok2
-    - ok3
+    sounds: []
   phrases:
     - спроси
     - бля спроси

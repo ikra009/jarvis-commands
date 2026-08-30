@@ -54,9 +54,14 @@ foreach ($f in $order) {
     $yaml += "    action: ahk`n"
     $yaml += "    exe_path: ahk/$($spec.exe).exe`n"
     $yaml += "    exe_args:`n"
-    $yaml += "  voice:`n"
-    $yaml += "    sounds:`n"
-    $yaml += "    - ok1`n    - ok2`n    - ok3`n"
+    if ($isReply) {
+      $yaml += "  voice:`n"
+      $yaml += "    sounds: []`n"
+    } else {
+      $yaml += "  voice:`n"
+      $yaml += "    sounds:`n"
+      $yaml += "    - ok1`n    - ok2`n    - ok3`n"
+    }
     $yaml += "  phrases:`n"
     foreach ($p in $phrases) { $yaml += "    - $p`n" }
     $names += "$($spec.exe):$($spec.exe)"
