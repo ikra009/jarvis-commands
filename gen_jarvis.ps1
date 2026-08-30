@@ -1,5 +1,6 @@
 $base = Join-Path $PSScriptRoot "commands"
 $py = "C:\Program Files\Python314\pythonw.exe"
+$pyn = "C:\Users\ikra\Documents\Projects\teos-bot\venv\Scripts\pythonw.exe"
 $cmd = "C:\Users\ikra\Documents\Projects\teos-bot\commands.py"
 $ahk2exe = "C:\Program Files\AutoHotkey\Compiler\Ahk2Exe.exe"
 $bin = "C:\Program Files\AutoHotkey\v1.1.37.02\Unicode 64-bit.bin"
@@ -42,10 +43,10 @@ foreach ($f in $order) {
     $phrases = Expand $spec.phrases
     $ahkPath = Join-Path $ahkDir "$($spec.exe).ahk"
     $isReply = $spec.py -like "reply_*" -or $spec.py -eq "ask"
-    $trigMode = $isReply -or $f -eq "rest"
-    if ($trigMode) {
-      $trig = "C:\Users\ikra\Documents\Projects\teos-bot\.vn_trigger"
-      $ahkLine = "FileDelete, $trig`nFileAppend, $($spec.py), $trig"
+    $voiceMode = $isReply -or $f -eq "rest"
+    if ($voiceMode) {
+      $vn = "C:\Users\ikra\Documents\Projects\teos-bot\voice_note.py"
+      $ahkLine = "Run, `"$pyn`" `"$vn`" --once $($spec.py)"
     } else {
       $ahkLine = "Run, `"$py`" `"$cmd`" $($spec.py)"
     }
@@ -55,7 +56,7 @@ foreach ($f in $order) {
     $yaml += "    action: ahk`n"
     $yaml += "    exe_path: ahk/$($spec.exe).exe`n"
     $yaml += "    exe_args:`n"
-    if ($trigMode) {
+    if ($voiceMode) {
       $yaml += "  voice:`n"
       $yaml += "    sounds: []`n"
     } else {
