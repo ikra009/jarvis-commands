@@ -42,7 +42,8 @@ foreach ($f in $order) {
     $phrases = Expand $spec.phrases
     $ahkPath = Join-Path $ahkDir "$($spec.exe).ahk"
     $isReply = $spec.py -like "reply_*" -or $spec.py -eq "ask"
-    if ($isReply) {
+    $trigMode = $isReply -or $f -eq "rest"
+    if ($trigMode) {
       $trig = "C:\Users\ikra\Documents\Projects\teos-bot\.vn_trigger"
       $ahkLine = "FileDelete, $trig`nFileAppend, $($spec.py), $trig"
     } else {
@@ -54,7 +55,7 @@ foreach ($f in $order) {
     $yaml += "    action: ahk`n"
     $yaml += "    exe_path: ahk/$($spec.exe).exe`n"
     $yaml += "    exe_args:`n"
-    if ($isReply) {
+    if ($trigMode) {
       $yaml += "  voice:`n"
       $yaml += "    sounds: []`n"
     } else {
