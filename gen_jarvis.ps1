@@ -41,7 +41,13 @@ foreach ($f in $order) {
   foreach ($spec in $folders[$f]) {
     $phrases = Expand $spec.phrases
     $ahkPath = Join-Path $ahkDir "$($spec.exe).ahk"
-    $ahkLine = "Run, `"$py`" `"$cmd`" $($spec.py)"
+    $isReply = $spec.py -like "reply_*" -or $spec.py -eq "ask"
+    if ($isReply) {
+      $trig = "C:\Users\ikra\Documents\Projects\teos-bot\.vn_trigger"
+      $ahkLine = "FileDelete, $trig`nFileAppend, $($spec.py), $trig"
+    } else {
+      $ahkLine = "Run, `"$py`" `"$cmd`" $($spec.py)"
+    }
     Set-Content -LiteralPath $ahkPath -Value $ahkLine -Encoding ASCII
     & "$ahk2exe" /in "$ahkPath" /out (Join-Path $ahkDir "$($spec.exe).exe") /bin "$bin" | Out-Null
     $yaml += "- command:`n"

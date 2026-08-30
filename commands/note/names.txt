@@ -1,0 +1,3 @@
+Note dictate:Note dictate
+Note plan:Note plan
+Note todo:Note todo

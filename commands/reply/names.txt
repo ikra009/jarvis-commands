@@ -1,0 +1,4 @@
+Reply time:Reply time
+Reply uptime:Reply uptime
+Reply weather:Reply weather
+Reply greeting:Reply greeting

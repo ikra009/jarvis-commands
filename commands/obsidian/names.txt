@@ -1,0 +1,2 @@
+Open obsidian:Open obsidian
+Close obsidian:Close obsidian

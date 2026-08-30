@@ -1,19 +1,31 @@
 Set sound 0:Set sound 0
+Set sound 1:Set sound 1
+Set sound 2:Set sound 2
+Set sound 3:Set sound 3
+Set sound 4:Set sound 4
 Set sound 5:Set sound 5
+Set sound 6:Set sound 6
+Set sound 7:Set sound 7
+Set sound 8:Set sound 8
+Set sound 9:Set sound 9
 Set sound 10:Set sound 10
 Set sound 15:Set sound 15
+Set sound 20:Set sound 20
 Set sound 25:Set sound 25
 Set sound 30:Set sound 30
 Set sound 35:Set sound 35
 Set sound 40:Set sound 40
 Set sound 45:Set sound 45
+Set sound 50:Set sound 50
 Set sound 55:Set sound 55
 Set sound 60:Set sound 60
 Set sound 65:Set sound 65
 Set sound 70:Set sound 70
 Set sound 75:Set sound 75
+Set sound 80:Set sound 80
 Set sound 85:Set sound 85
 Set sound 90:Set sound 90
 Set sound 95:Set sound 95
+Set sound 100:Set sound 100
 Sound down:Sound down
 Sound up:Sound up
