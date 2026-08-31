@@ -1,0 +1,787 @@
+# commands.yaml — единственный источник истины для jarvis-commands.
+#
+# Всё, что нужно развернуть в JARVIS, описывается здесь:
+#   - generate: папки, которые build.ps1 СОБИРАЕТ полностью (command.yaml, names.txt, ahk/*.exe)
+#   - manual:   папки, которые копируются как есть (их command.yaml/names.txt лежат в командах),
+#               а build.ps1 пересобирает все ahk/*.ahk в .exe (пути берутся из config, токены %...%)
+#   - stock:    папки из оригинального JARVIS/MSI — только для справки, не разворачиваются
+#   - swear:    слова, которые автоматически добавляются к фразам при генерации (варианты фраз)
+#
+# Машинозависимые пути в этот файл НЕ кладут — они живут только в config.local.psd1
+# (шаблон — config.example.psd1).
+
+meta:
+  jarvis_version: "0.0.2"      # единственный официальный релиз jarvis-app (тег beta)
+  note: "Пути и локали — только в config.local.psd1"
+
+# Слова, добавляемые к фразам генератором (аналог SWEAR из jarvis_data.txt).
+# Если фраза уже содержит одно из этих слов — ей НЕ добавляются варианты (антидубликат).
+swear:
+- бля
+- сука
+- блин
+- ёб
+
+# Папки, которые копируются в JARVIS как есть (используется их собственный command.yaml).
+# Список развёртывания = generate + manual — этим исчерпывается.
+manual:
+- youtube
+- yamusic
+- zapret
+
+# Папки оригинального JARVIS/MSI, сохранённые в репозитории как справка. НЕ разворачиваются.
+stock:
+- ahkcompiller
+- browser
+- calculator
+- discord
+- explorer
+- jarvis
+- jokes
+- multimedia
+- open_vpn
+- Spotify
+- telegram
+- VK music
+- voice_film_searcher
+- voice_recorder
+- weather
+- windows
+- yadisk
+
+# --- Генерируемые команды ---
+# engine: voice     -> voice_note.py  --once <action>   (тихий звук, длинные реплики)
+#         commands  -> commands.py    <action>           (запуск приложений, громкость и т.п.)
+# confirm: true     -> команда требует подтверждения (см. scripts/confirm.py и README)
+generate:
+- folder: photoshop
+  sub:
+  - exe: Open photoshop
+    action: open_photoshop
+    engine: commands
+    phrases:
+    - открой фотошоп
+    - запусти фотошоп
+    - включи фотошоп
+    - фотошоп
+  - exe: Close photoshop
+    action: close_photoshop
+    engine: commands
+    phrases:
+    - закрой фотошоп
+    - выключи фотошоп
+    - отключи фотошоп
+- folder: happr
+  sub:
+  - exe: Open happr
+    action: open_happr
+    engine: commands
+    phrases:
+    - открой хаппр
+    - включи хаппр
+    - запусти хаппр
+    - открой хаппр впн
+  - exe: Close happr
+    action: close_happr
+    engine: commands
+    phrases:
+    - закрой хаппр
+    - выключи хаппр
+    - отключи хаппр
+- folder: opencode
+  sub:
+  - exe: Open opencode
+    action: open_opencode
+    engine: commands
+    phrases:
+    - открой опенкод
+    - включи опенкод
+    - запусти опенкод
+  - exe: Close opencode
+    action: close_opencode
+    engine: commands
+    phrases:
+    - закрой опенкод
+    - выключи опенкод
+- folder: steam
+  sub:
+  - exe: Open steam
+    action: open_steam
+    engine: commands
+    phrases:
+    - открой стим
+    - включи стим
+    - запусти стим
+  - exe: Close steam
+    action: close_steam
+    engine: commands
+    phrases:
+    - закрой стим
+    - выключи стим
+- folder: telegram_proxy
+  sub:
+  - exe: Open telegram proxy
+    action: open_telegram_proxy
+    engine: commands
+    phrases:
+    - открой телеграм с прокси
+    - включи телеграм с прокси
+    - запусти телеграм с прокси
+    - открой телеграм через прокси
+  - exe: Close telegram proxy
+    action: close_telegram_proxy
+    engine: commands
+    phrases:
+    - закрой телеграм и прокси
+    - выключи прокси телеграм
+    - закрой телеграм с прокси
+- folder: youtube_close
+  sub:
+  - exe: Close youtube
+    action: close_youtube
+    engine: commands
+    phrases:
+    - закрой ютуб
+    - выключи ютуб
+    - закрой ютьюб
+- folder: volume_extra
+  sub:
+  - exe: Set sound 0
+    action: set_volume 0
+    engine: commands
+    phrases:
+    - громкость ноль
+    - звук ноль
+    - громкость 0
+    - звук 0
+    - сделай ноль
+    - сделай 0
+    - сделать ноль
+    - сделать 0
+  - exe: Set sound 1
+    action: set_volume 1
+    engine: commands
+    phrases:
+    - громкость один
+    - звук один
+    - громкость 1
+    - звук 1
+    - сделай один
+    - сделай 1
+    - сделать один
+    - сделать 1
+  - exe: Set sound 2
+    action: set_volume 2
+    engine: commands
+    phrases:
+    - громкость два
+    - звук два
+    - громкость 2
+    - звук 2
+    - сделай два
+    - сделай 2
+    - сделать два
+    - сделать 2
+  - exe: Set sound 3
+    action: set_volume 3
+    engine: commands
+    phrases:
+    - громкость три
+    - звук три
+    - громкость 3
+    - звук 3
+    - сделай три
+    - сделай 3
+    - сделать три
+    - сделать 3
+  - exe: Set sound 4
+    action: set_volume 4
+    engine: commands
+    phrases:
+    - громкость четыре
+    - звук четыре
+    - громкость 4
+    - звук 4
+    - сделай четыре
+    - сделай 4
+    - сделать четыре
+    - сделать 4
+  - exe: Set sound 5
+    action: set_volume 5
+    engine: commands
+    phrases:
+    - громкость пять
+    - звук пять
+    - громкость 5
+    - звук 5
+    - сделай пять
+    - сделай 5
+    - сделать пять
+    - сделать 5
+  - exe: Set sound 6
+    action: set_volume 6
+    engine: commands
+    phrases:
+    - громкость шесть
+    - звук шесть
+    - громкость 6
+    - звук 6
+    - сделай шесть
+    - сделай 6
+    - сделать шесть
+    - сделать 6
+  - exe: Set sound 7
+    action: set_volume 7
+    engine: commands
+    phrases:
+    - громкость семь
+    - звук семь
+    - громкость 7
+    - звук 7
+    - сделай семь
+    - сделай 7
+    - сделать семь
+    - сделать 7
+  - exe: Set sound 8
+    action: set_volume 8
+    engine: commands
+    phrases:
+    - громкость восемь
+    - звук восемь
+    - громкость 8
+    - звук 8
+    - сделай восемь
+    - сделай 8
+    - сделать восемь
+    - сделать 8
+  - exe: Set sound 9
+    action: set_volume 9
+    engine: commands
+    phrases:
+    - громкость девять
+    - звук девять
+    - громкость 9
+    - звук 9
+    - сделай девять
+    - сделай 9
+    - сделать девять
+    - сделать 9
+  - exe: Set sound 10
+    action: set_volume 10
+    engine: commands
+    phrases:
+    - громкость десять
+    - звук десять
+    - громкость 10
+    - звук 10
+    - сделай десять
+    - сделай 10
+    - сделать десять
+    - сделать 10
+  - exe: Set sound 15
+    action: set_volume 15
+    engine: commands
+    phrases:
+    - громкость пятнадцать
+    - звук пятнадцать
+    - громкость 15
+    - звук 15
+    - сделай пятнадцать
+    - сделай 15
+    - сделать пятнадцать
+    - сделать 15
+  - exe: Set sound 20
+    action: set_volume 20
+    engine: commands
+    phrases:
+    - громкость двадцать
+    - звук двадцать
+    - громкость 20
+    - звук 20
+    - сделай двадцать
+    - сделай 20
+    - сделать двадцать
+    - сделать 20
+  - exe: Set sound 25
+    action: set_volume 25
+    engine: commands
+    phrases:
+    - громкость двадцать пять
+    - звук двадцать пять
+    - громкость 25
+    - звук 25
+    - сделай двадцать пять
+    - сделай 25
+    - сделать двадцать пять
+    - сделать 25
+  - exe: Set sound 30
+    action: set_volume 30
+    engine: commands
+    phrases:
+    - громкость тридцать
+    - звук тридцать
+    - громкость 30
+    - звук 30
+    - сделай тридцать
+    - сделай 30
+    - сделать тридцать
+    - сделать 30
+  - exe: Set sound 35
+    action: set_volume 35
+    engine: commands
+    phrases:
+    - громкость тридцать пять
+    - звук тридцать пять
+    - громкость 35
+    - звук 35
+    - сделай тридцать пять
+    - сделай 35
+    - сделать тридцать пять
+    - сделать 35
+  - exe: Set sound 40
+    action: set_volume 40
+    engine: commands
+    phrases:
+    - громкость сорок
+    - звук сорок
+    - громкость 40
+    - звук 40
+    - сделай сорок
+    - сделай 40
+    - сделать сорок
+    - сделать 40
+  - exe: Set sound 45
+    action: set_volume 45
+    engine: commands
+    phrases:
+    - громкость сорок пять
+    - звук сорок пять
+    - громкость 45
+    - звук 45
+    - сделай сорок пять
+    - сделай 45
+    - сделать сорок пять
+    - сделать 45
+  - exe: Set sound 50
+    action: set_volume 50
+    engine: commands
+    phrases:
+    - громкость пятьдесят
+    - звук пятьдесят
+    - громкость 50
+    - звук 50
+    - сделай пятьдесят
+    - сделай 50
+    - сделать пятьдесят
+    - сделать 50
+  - exe: Set sound 55
+    action: set_volume 55
+    engine: commands
+    phrases:
+    - громкость пятьдесят пять
+    - звук пятьдесят пять
+    - громкость 55
+    - звук 55
+    - сделай пятьдесят пять
+    - сделай 55
+    - сделать пятьдесят пять
+    - сделать 55
+  - exe: Set sound 60
+    action: set_volume 60
+    engine: commands
+    phrases:
+    - громкость шестьдесят
+    - звук шестьдесят
+    - громкость 60
+    - звук 60
+    - сделай шестьдесят
+    - сделай 60
+    - сделать шестьдесят
+    - сделать 60
+  - exe: Set sound 65
+    action: set_volume 65
+    engine: commands
+    phrases:
+    - громкость шестьдесят пять
+    - звук шестьдесят пять
+    - громкость 65
+    - звук 65
+    - сделай шестьдесят пять
+    - сделай 65
+    - сделать шестьдесят пять
+    - сделать 65
+  - exe: Set sound 70
+    action: set_volume 70
+    engine: commands
+    phrases:
+    - громкость семьдесят
+    - звук семьдесят
+    - громкость 70
+    - звук 70
+    - сделай семьдесят
+    - сделай 70
+    - сделать семьдесят
+    - сделать 70
+  - exe: Set sound 75
+    action: set_volume 75
+    engine: commands
+    phrases:
+    - громкость семьдесят пять
+    - звук семьдесят пять
+    - громкость 75
+    - звук 75
+    - сделай семьдесят пять
+    - сделай 75
+    - сделать семьдесят пять
+    - сделать 75
+  - exe: Set sound 80
+    action: set_volume 80
+    engine: commands
+    phrases:
+    - громкость восемьдесят
+    - звук восемьдесят
+    - громкость 80
+    - звук 80
+    - сделай восемьдесят
+    - сделай 80
+    - сделать восемьдесят
+    - сделать 80
+  - exe: Set sound 85
+    action: set_volume 85
+    engine: commands
+    phrases:
+    - громкость восемьдесят пять
+    - звук восемьдесят пять
+    - громкость 85
+    - звук 85
+    - сделай восемьдесят пять
+    - сделай 85
+    - сделать восемьдесят пять
+    - сделать 85
+  - exe: Set sound 90
+    action: set_volume 90
+    engine: commands
+    phrases:
+    - громкость девяносто
+    - звук девяносто
+    - громкость 90
+    - звук 90
+    - сделай девяносто
+    - сделай 90
+    - сделать девяносто
+    - сделать 90
+  - exe: Set sound 95
+    action: set_volume 95
+    engine: commands
+    phrases:
+    - громкость девяносто пять
+    - звук девяносто пять
+    - громкость 95
+    - звук 95
+    - сделай девяносто пять
+    - сделай 95
+    - сделать девяносто пять
+    - сделать 95
+  - exe: Set sound 100
+    action: set_volume 100
+    engine: commands
+    phrases:
+    - громкость сто
+    - звук сто
+    - громкость 100
+    - звук 100
+    - сделай сто
+    - сделай 100
+    - сделать сто
+    - сделать 100
+    - максимальная громкость
+    - максимум звука
+  - exe: Sound down
+    action: volume_down
+    engine: commands
+    phrases:
+    - сделай тише
+    - сделай потише
+    - сделай громче вниз
+    - тише
+    - потише
+    - сделай тише бля
+    - сделай тише сука
+  - exe: Sound up
+    action: volume_up
+    engine: commands
+    phrases:
+    - сделай громче
+    - сделай погромче
+    - сделай громче вверх
+    - громче
+    - погромче
+    - сделай громче бля
+    - сделай громче сука
+- folder: obsidian
+  sub:
+  - exe: Open obsidian
+    action: open_obsidian
+    engine: commands
+    phrases:
+    - открой обсидиан
+    - включи обсидиан
+    - запусти обсидиан
+    - открой хранилище
+    - открой хранилище обсидиан
+    - хранилище обсидиан
+  - exe: Close obsidian
+    action: close_obsidian
+    engine: commands
+    phrases:
+    - закрой обсидиан
+    - выключи обсидиан
+    - отключи обсидиан
+    - закрой хранилище
+    - закрой хранилище обсидиан
+- folder: animix
+  sub:
+  - exe: Open animix
+    action: open_animix
+    engine: commands
+    phrases:
+    - открой анимекс
+    - включи анимекс
+    - запусти анимекс
+    - открой анимикс
+    - запусти анимикс
+    - анимикс
+  - exe: Close animix
+    action: close_animix
+    engine: commands
+    phrases:
+    - закрой анимекс
+    - выключи анимекс
+    - отключи анимекс
+    - закрой анимикс
+- folder: rest
+  sub:
+  - exe: Rest
+    action: rest
+    engine: voice
+    phrases:
+    - завали ебало
+    - завали ебало сука
+    - завали рот
+    - джарвис отдыхай
+    - иди отдыхай
+    - отдыхай
+    - заткнись
+    - замолчи
+  - exe: Rest awake
+    action: rest_awake
+    engine: voice
+    phrases:
+    - проснись
+    - очнись
+    - просыпайся
+    - вернись
+    - просыпайся джарвис
+- folder: pause
+  sub:
+  # Системная пауза — по последнему активному плееру (mediaplay)
+  - exe: Pause system
+    action: pause_media
+    engine: commands
+    phrases:
+    - пауза
+    - поставь на паузу
+    - поставь паузу
+    - останови
+    - стоп
+    - паузу
+    - поставить паузу
+    - останов
+  # Пауза в браузере (активный плеер во вкладке)
+  - exe: Pause browser
+    action: pause_browser
+    engine: commands
+    phrases:
+    - пауза в браузере
+    - останови браузер
+    - пауза браузера
+    - поставь на паузу в браузере
+    - останови в браузере
+  # Пауза в YouTube (вкладка в браузере)
+  - exe: Pause youtube
+    action: pause_youtube
+    engine: commands
+    phrases:
+    - пауза ютуба
+    - пауза на ютубе
+    - останови ютуб
+    - останови на ютубе
+    - поставь ютуб на паузу
+    - пауза ютьюба
+    - останови ютьюб
+  # Пауза в музыке (Яндекс Музыка)
+  - exe: Pause music
+    action: pause_music
+    engine: commands
+    phrases:
+    - пауза в музыке
+    - пауза музыки
+    - останови музыку
+    - поставь музыку на паузу
+    - пауза в песне
+    - останови песню
+  # Пауза в animix
+  - exe: Pause animix
+    action: pause_animix
+    engine: commands
+    phrases:
+    - пауза в анимиксе
+    - пауза анимикса
+    - останови анимикс
+    - поставь анимикс на паузу
+    - поставь на паузу в анимиксе
+- folder: note
+  sub:
+  - exe: Note dictate
+    action: note_dictate
+    engine: commands
+    phrases:
+    - запиши заметку
+    - запиши мысль
+    - сделай заметку
+    - добавь заметку
+    - добавь в заметки
+    - запиши в заметки
+    - запомни
+    - запомни это
+    - отметь
+    - создай заметку
+  - exe: Note plan
+    action: note_plan
+    engine: commands
+    phrases:
+    - запиши план
+    - запиши планы
+    - добавь план
+    - добавь планы
+    - добавь в планы
+    - запиши в планы
+  - exe: Note todo
+    action: note_todo
+    engine: commands
+    phrases:
+    - запиши задачу
+    - запиши задачи
+    - запиши дело
+    - запиши дела
+    - запиши задачку
+    - в список дел
+    - запиши в список дел
+    - запиши что сделать
+    - запиши в сделать
+- folder: reply
+  sub:
+  - exe: Reply time
+    action: reply_time
+    engine: voice
+    phrases:
+    - который час
+    - сколько время
+    - сколько сейчас времени
+    - который сейчас час
+    - какое время
+    - скажи время
+    - сколько времени
+    - который час сейчас
+    - скажи который час
+    - время сейчас
+    - назови время
+  - exe: Reply uptime
+    action: reply_uptime
+    engine: voice
+    phrases:
+    - сколько работаешь
+    - как долго ты работаешь
+    - сколько времени работаешь
+    - сколько ты уже работаешь
+    - как долго работаешь
+    - какой аптайм
+    - аптайм
+    - сколько ты работаешь
+    - компьютер сколько работает
+  - exe: Reply weather
+    action: reply_weather
+    engine: voice
+    phrases:
+    - какая погода
+    - какая сейчас погода
+    - погода в барнауле
+    - что там с погодой
+    - погода на улице
+    - какая сегодня погода
+    - будет ли дождь
+    - идёт ли дождь
+    - светит ли солнце
+    - какая погода на завтра
+    - погода на завтра
+    - что на улице
+    - почему холодно
+    - почему жарко
+    - солнечно ли
+  - exe: Reply greeting
+    action: reply_greet
+    engine: voice
+    phrases:
+    - привет
+    - здравствуй
+    - здравствуйте
+    - здорово
+    - приветик
+    - хай
+    - hello
+    - добрый день
+    - доброе утро
+    - добрый вечер
+    - доброй ночи
+    - доброго времени суток
+    - привет джарвис
+    - йо
+    - ку
+  - exe: Reply howareyou
+    action: reply_howareyou
+    engine: voice
+    phrases:
+    - как дела
+    - как жизнь
+    - как настроение
+    - как поживаешь
+    - как ты
+    - как у тебя дела
+    - как ты себя чувствуешь
+    - как самочувствие
+    - расскажи как дела
+  - exe: Reply thanks
+    action: reply_thanks
+    engine: voice
+    phrases:
+    - спасибо
+    - благодарю
+    - спасибо большое
+    - спасибо джарвис
+    - благодарю тебя
+- folder: ask
+  sub:
+  - exe: Ask
+    action: ask
+    engine: voice
+    phrases:
+    - спроси
+    - вопрос
+    - задай вопрос
+    - спроси у джарвиса
+    - спроси у ии
+    - спроси у искусственного интеллекта
+    - поумничай
+    - поговори со мной
+    - поболтай
+    - поговори

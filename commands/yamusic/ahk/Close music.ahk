@@ -1,6 +1,6 @@
 ﻿#NoEnv
 SendMode Input
 DetectHiddenWindows, On
-WinClose, ahk_exe Яндекс Музыка.exe
+WinClose, ahk_exe %YANDEX_MUSIC_PROC%
 Sleep, 500
-Process, Close, Яндекс Музыка.exe
+Process, Close, %YANDEX_MUSIC_PROC%

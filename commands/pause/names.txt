@@ -1,1 +1,5 @@
-Pause media:Pause media
+Pause system:Pause system
+Pause browser:Pause browser
+Pause youtube:Pause youtube
+Pause music:Pause music
+Pause animix:Pause animix

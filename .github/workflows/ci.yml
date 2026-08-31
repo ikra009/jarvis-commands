@@ -1,0 +1,19 @@
+name: validate
+
+on:
+  push:
+    paths:
+      - "commands.yaml"
+      - "commands/**"
+      - "scripts/**"
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate manifest & commands
+        shell: powershell
+        run: ./scripts/validate.ps1

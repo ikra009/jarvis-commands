@@ -1,0 +1,1 @@
+Run, "%ZAPRET_BAT%"
